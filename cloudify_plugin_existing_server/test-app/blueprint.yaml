@@ -1,0 +1,17 @@
+plugins:
+    cloudify_plugin_existing_server:
+        derived_from: 'cloudify.plugins.manager_plugin'
+        properties:
+            url: 'https://github.com/ilyash/cloudify-plugin-existing-server/archive/master.zip'
+
+imports:
+    - 'existing-server-type.yaml'
+
+blueprint:
+    name: 'existing-server-test'
+    nodes:
+        -
+            name: 'existing_server'
+            type: 'existing_server'
+            properties:
+                ip: 127.0.0.1
